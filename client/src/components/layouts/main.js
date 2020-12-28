@@ -12,7 +12,7 @@ function MainLayout({ children }) {
 			</MainHeader>
 			<Container>{children}</Container>
 			<footer style={{ textAlign: "center" }}>
-				Green Gate. All Rights Reserved.
+				© {new Date().getFullYear()} Green Gate. All Rights Reserved.
 			</footer>
 		</div>
 	);
