@@ -10,7 +10,7 @@ function MainLayout({ children }) {
 			<MainHeader>
 				<MainMenu />
 			</MainHeader>
-			<Container>{children}</Container>
+			<Container className="py-5">{children}</Container>
 			<footer style={{ textAlign: "center" }}>
 				© {new Date().getFullYear()} Green Gate. All Rights Reserved.
 			</footer>

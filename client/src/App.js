@@ -5,6 +5,8 @@ import MainLayout from "./components/layouts/main";
 import Home from "./components/pages/home";
 import About from "./components/pages/about";
 import Plants from "./components/pages/plants";
+import NurserySignUp from "./components/pages/nursery/sign-up";
+import NurserySignIn from "./components/pages/nursery/sign-in";
 import "./App.css";
 
 function App() {
@@ -13,6 +15,12 @@ function App() {
 			<Router>
 				<MainLayout>
 					<Switch>
+						<Route path="/nursery/sign-in" exact>
+							<NurserySignIn />
+						</Route>
+						<Route path="/nursery/sign-up" exact>
+							<NurserySignUp />
+						</Route>
 						<Route path="/plants" exact>
 							<Plants />
 						</Route>
