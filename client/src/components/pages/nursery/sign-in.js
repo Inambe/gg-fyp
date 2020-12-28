@@ -23,6 +23,7 @@ function NurserySignIn() {
 								type="password"
 								placeholder="Password"
 								required
+								minLength={5}
 							/>
 						</Form.Group>
 
