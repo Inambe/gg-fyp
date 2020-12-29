@@ -18,7 +18,7 @@ router.post(
 		if (!errors.isEmpty())
 			return res.json({
 				success: false,
-				message: "Information is not valid",
+				message: "Information is not valid.",
 				data: errors.array(),
 			});
 
@@ -62,7 +62,7 @@ router.post(
 		if (!errors.isEmpty())
 			return res.json({
 				success: false,
-				message: "Information is not valid",
+				message: "Information is not valid.",
 				data: errors.array(),
 			});
 
@@ -72,14 +72,14 @@ router.post(
 		if (!nursery)
 			return res.json({
 				success: false,
-				message: "No Nursery was found with this email",
+				message: "No Nursery was found with this email.",
 			});
 
 		const passwordGood = await verify(password, nursery.password);
 		if (!passwordGood)
 			return res.json({
 				success: false,
-				message: "Password is wrong",
+				message: "Password is wrong.",
 			});
 
 		try {

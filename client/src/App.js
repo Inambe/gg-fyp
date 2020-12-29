@@ -7,6 +7,8 @@ import About from "./components/pages/about";
 import Plants from "./components/pages/plants";
 import NurserySignUp from "./components/pages/nursery/sign-up";
 import NurserySignIn from "./components/pages/nursery/sign-in";
+import NurseryPrivateRoute from "./auth/nurseryRoute";
+import NurseryDashboard from "./components/pages/nursery/dashboard";
 import "./App.css";
 
 function App() {
@@ -15,6 +17,11 @@ function App() {
 			<Router>
 				<MainLayout>
 					<Switch>
+						<NurseryPrivateRoute
+							path="/nursery/dashboard"
+							exact
+							component={NurseryDashboard}
+						/>
 						<Route path="/nursery/sign-in" exact>
 							<NurserySignIn />
 						</Route>

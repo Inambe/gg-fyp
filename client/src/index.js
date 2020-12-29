@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { RecoilRoot } from "recoil";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -7,9 +8,9 @@ import "bootswatch/dist/united/bootstrap.min.css";
 import "./index.css";
 
 ReactDOM.render(
-	<React.StrictMode>
+	<RecoilRoot>
 		<App />
-	</React.StrictMode>,
+	</RecoilRoot>,
 	document.getElementById("root")
 );
 
