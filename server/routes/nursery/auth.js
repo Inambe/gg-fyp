@@ -7,7 +7,7 @@ const { hash, verify } = require("../../models/password");
 
 const router = express.Router();
 
-router.get(
+router.post(
 	"/sign-up",
 	body("name").notEmpty(),
 	body("location").notEmpty(),
@@ -23,6 +23,15 @@ router.get(
 			});
 
 		const { name, email, password, location } = req.body;
+
+		const matchingAccounts = await Nursery.countDocuments({ email: email });
+		if (matchingAccounts > 0)
+			return res.json({
+				success: false,
+				message: "This email is associated with another account.",
+				data: errors.array(),
+			});
+
 		const nursery = new Nursery({
 			name,
 			email,
@@ -33,6 +42,7 @@ router.get(
 			await nursery.save();
 			return res.json({
 				success: true,
+				message: "User created successfully.",
 			});
 		} catch (e) {
 			return res.json({
@@ -43,7 +53,7 @@ router.get(
 	}
 );
 
-router.get(
+router.post(
 	"/sign-in",
 	body("email").isEmail(),
 	body("password").isLength({ min: 5 }),
