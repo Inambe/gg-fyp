@@ -11,6 +11,7 @@ import NurserySignOut from "./components/pages/nursery/signOut";
 import NurseryPrivateRoute from "./auth/nurseryRoute";
 import NurseryDashboard from "./components/pages/nursery/dashboard";
 import NurseryCreateProduct from "./components/pages/nursery/createProduct";
+import NurseryEditProduct from "./components/pages/nursery/editProduct";
 import "./App.css";
 import NurseryProducts from "./components/pages/nursery/products";
 import UpdateProfile from "./components/pages/nursery/updateProfile";
@@ -35,6 +36,11 @@ function App() {
 							path="/nursery/products/create"
 							exact
 							component={NurseryCreateProduct}
+						/>
+						<NurseryPrivateRoute
+							path="/nursery/products/edit/:id"
+							exact
+							component={NurseryEditProduct}
 						/>
 						<NurseryPrivateRoute
 							path="/nursery/products"

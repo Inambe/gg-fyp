@@ -77,7 +77,12 @@ function NurseryProducts() {
 									Delete
 								</Button>
 								&nbsp;
-								<Button variant="secondary" size="sm">
+								<Button
+									as={Link}
+									to={`/nursery/products/edit/${product._id}`}
+									variant="secondary"
+									size="sm"
+								>
 									Edit
 								</Button>
 							</td>

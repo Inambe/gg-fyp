@@ -15,6 +15,7 @@ function NurseryPrivateRoute({ component: Component, ...rest }) {
 					<Redirect to="/nursery/sign-in" />
 				)
 			}
+			{...rest}
 		/>
 	);
 }
