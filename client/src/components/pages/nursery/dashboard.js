@@ -10,6 +10,9 @@ function NurseryDashboard() {
 				<ListGroup.Item>
 					<Link to="/nursery/products">Manage Products</Link>
 				</ListGroup.Item>
+				<ListGroup.Item>
+					<Link to="/nursery/profile">Update Profile</Link>
+				</ListGroup.Item>
 			</ListGroup>
 			<div className="text-center mt-4">
 				<Link to="/nursery/sign-out">Logout</Link>
