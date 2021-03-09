@@ -19,7 +19,7 @@ function NurseryCreateProduct() {
 		if (data.success) {
 			setFeedback({
 				type: "msg",
-				message: "Product created successfully.",
+				message: data.message,
 			});
 		} else {
 			setFeedback({
@@ -34,7 +34,7 @@ function NurseryCreateProduct() {
 		<div>
 			<Row>
 				<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-					<h1 className="text-center">Create Product</h1>
+					<h1 className="text-center mb-5">Create Product</h1>
 					{feedback && (
 						<Alert
 							variant={

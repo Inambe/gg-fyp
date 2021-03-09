@@ -47,7 +47,10 @@ router.post(
 
 		try {
 			await product.save();
-			return res.json({ success: true, data: product });
+			return res.json({
+				success: true,
+				message: "Product created successfully.",
+			});
 		} catch (e) {
 			return res.send({ success: false, message: e.message });
 		}
