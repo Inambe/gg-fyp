@@ -10,6 +10,7 @@ const ExtractJwt = require("passport-jwt").ExtractJwt;
 const db = require("./models/db");
 const Nursery = require("./models/mongoose/nursery");
 var nurseryRouter = require("./routes/nursery");
+var mainRouter = require("./routes");
 
 var app = express();
 
@@ -53,6 +54,7 @@ app.use(cors());
 
 app.use(passport.initialize());
 
+app.use("/", mainRouter);
 app.use("/nursery", nurseryRouter);
 
 module.exports = app;

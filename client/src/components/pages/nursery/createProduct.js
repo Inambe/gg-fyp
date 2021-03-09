@@ -34,7 +34,7 @@ function NurseryCreateProduct() {
 		<div>
 			<Row>
 				<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-					<h1 className="text-center p-3">Create Product</h1>
+					<h1 className="text-center">Create Product</h1>
 					{feedback && (
 						<Alert
 							variant={

@@ -36,12 +36,12 @@ router.post(
 			});
 
 		const { name } = req.body;
-		const picturePath = picture.path;
+		const pictureFilename = picture.filename;
 		const nurseryId = req.user.sub;
 
 		const product = new Product({
 			name,
-			picture: picturePath,
+			picture: pictureFilename,
 			nursery: nurseryId,
 		});
 
@@ -53,5 +53,25 @@ router.post(
 		}
 	}
 );
+
+router.get("/list", async (req, res) => {
+	try {
+		const nurseryId = req.user.sub;
+		const products = await Product.where("nursery", nurseryId).find();
+		return res.json({ success: true, data: products });
+	} catch (e) {
+		return res.send({ success: false, message: e.message });
+	}
+});
+
+router.post("/delete/:id", async (req, res) => {
+	try {
+		const productId = req.params.id;
+		await Product.findByIdAndDelete(productId);
+		return res.json({ success: true });
+	} catch (e) {
+		return res.send({ success: false, message: e.message });
+	}
+});
 
 module.exports = router;

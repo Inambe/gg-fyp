@@ -12,6 +12,7 @@ import NurseryPrivateRoute from "./auth/nurseryRoute";
 import NurseryDashboard from "./components/pages/nursery/dashboard";
 import NurseryCreateProduct from "./components/pages/nursery/createProduct";
 import "./App.css";
+import NurseryProducts from "./components/pages/nursery/products";
 
 function App() {
 	return (
@@ -33,6 +34,11 @@ function App() {
 							path="/nursery/products/create"
 							exact
 							component={NurseryCreateProduct}
+						/>
+						<NurseryPrivateRoute
+							path="/nursery/products"
+							exact
+							component={NurseryProducts}
 						/>
 						<Route path="/nursery/sign-in" exact>
 							<NurserySignIn />
