@@ -7,8 +7,10 @@ import About from "./components/pages/about";
 import Plants from "./components/pages/plants";
 import NurserySignUp from "./components/pages/nursery/sign-up";
 import NurserySignIn from "./components/pages/nursery/sign-in";
+import NurserySignOut from "./components/pages/nursery/signOut";
 import NurseryPrivateRoute from "./auth/nurseryRoute";
 import NurseryDashboard from "./components/pages/nursery/dashboard";
+import NurseryCreateProduct from "./components/pages/nursery/createProduct";
 import "./App.css";
 
 function App() {
@@ -21,6 +23,16 @@ function App() {
 							path="/nursery/dashboard"
 							exact
 							component={NurseryDashboard}
+						/>
+						<NurseryPrivateRoute
+							path="/nursery/sign-out"
+							exact
+							component={NurserySignOut}
+						/>
+						<NurseryPrivateRoute
+							path="/nursery/products/create"
+							exact
+							component={NurseryCreateProduct}
 						/>
 						<Route path="/nursery/sign-in" exact>
 							<NurserySignIn />

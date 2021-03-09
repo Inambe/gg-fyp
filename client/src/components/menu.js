@@ -9,8 +9,11 @@ import {
 	Button,
 	Container,
 } from "react-bootstrap";
+import { useRecoilValue } from "recoil";
+import { isNurseryAuthenticated } from "../atoms/auth";
 
 function MainMenu() {
+	const _isNurseryAuthenticated = useRecoilValue(isNurseryAuthenticated);
 	return (
 		<Navbar bg="primary" expand="lg" variant="dark">
 			<Container>
@@ -26,20 +29,29 @@ function MainMenu() {
 						<RLink to="/about" component={Nav.Link}>
 							About Us
 						</RLink>
-						<NavDropdown title="Nursery" id="basic-nav-dropdown">
-							<RLink
-								to="/nursery/sign-up"
-								component={NavDropdown.Item}
-							>
-								Sign-up
+						{_isNurseryAuthenticated ? (
+							<RLink to="/nursery/dashboard" component={Nav.Link}>
+								Dashboard
 							</RLink>
-							<RLink
-								to="/nursery/sign-in"
-								component={NavDropdown.Item}
+						) : (
+							<NavDropdown
+								title="Nursery"
+								id="basic-nav-dropdown"
 							>
-								Sign-in
-							</RLink>
-						</NavDropdown>
+								<RLink
+									to="/nursery/sign-up"
+									component={NavDropdown.Item}
+								>
+									Sign-up
+								</RLink>
+								<RLink
+									to="/nursery/sign-in"
+									component={NavDropdown.Item}
+								>
+									Sign-in
+								</RLink>
+							</NavDropdown>
+						)}
 					</Nav>
 					<Form inline>
 						<FormControl
