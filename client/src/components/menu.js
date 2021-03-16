@@ -23,8 +23,8 @@ function MainMenu() {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
-						<RLink to="/plants" component={Nav.Link}>
-							Plants
+						<RLink to="/products" component={Nav.Link}>
+							Products
 						</RLink>
 						<RLink to="/about" component={Nav.Link}>
 							About Us

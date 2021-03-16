@@ -58,7 +58,7 @@ function App() {
 						<Route path="/nursery/sign-up" exact>
 							<NurserySignUp />
 						</Route>
-						<Route path="/plants" exact>
+						<Route path="/products" exact>
 							<Plants />
 						</Route>
 						<Route path="/about" exact>

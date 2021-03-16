@@ -24,4 +24,6 @@ router.get("/uploads/:name", async (req, res) => {
 	res.sendFile(file);
 });
 
+router.use("/products", require("./products"));
+
 module.exports = router;

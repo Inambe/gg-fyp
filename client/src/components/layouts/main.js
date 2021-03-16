@@ -11,7 +11,7 @@ function MainLayout({ children }) {
 				<MainMenu />
 			</MainHeader>
 			<Container className="py-5">{children}</Container>
-			<footer style={{ textAlign: "center" }}>
+			<footer className="text-center py-5">
 				© {new Date().getFullYear()} Green Gate. All Rights Reserved.
 			</footer>
 		</div>
