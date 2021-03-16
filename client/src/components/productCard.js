@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { uploadsUrl } from "../api/utils";
 
 function ProductCard({ product }) {
@@ -12,7 +13,13 @@ function ProductCard({ product }) {
 					<Card.Text>
 						<strong>Seller:</strong> {product.nursery.name}
 					</Card.Text>
-					<Button variant="primary">Contact</Button>
+					<Button
+						as={Link}
+						to={`/products/${product._id}`}
+						variant="primary"
+					>
+						Read more
+					</Button>
 				</Card.Body>
 			</Card>
 		</Col>

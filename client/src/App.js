@@ -15,6 +15,7 @@ import NurseryEditProduct from "./components/pages/nursery/editProduct";
 import "./App.css";
 import NurseryProducts from "./components/pages/nursery/products";
 import UpdateProfile from "./components/pages/nursery/updateProfile";
+import Product from "./components/pages/product";
 
 function App() {
 	return (
@@ -60,6 +61,9 @@ function App() {
 						</Route>
 						<Route path="/products" exact>
 							<Plants />
+						</Route>
+						<Route path="/products/:id" exact>
+							<Product />
 						</Route>
 						<Route path="/about" exact>
 							<About />
