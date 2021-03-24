@@ -4,12 +4,12 @@ import { useHistory } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 
 import GGClient from "../../../api/GGClient";
-import authState from "../../../atoms/auth";
+import { authToken } from "../../../atoms/auth";
 
 function NurserySignIn() {
 	const [feedback, setFeedback] = useState();
 	const history = useHistory();
-	const setToken = useSetRecoilState(authState);
+	const setAuthToken = useSetRecoilState(authToken);
 
 	const signIn = useCallback(
 		async (e) => {
@@ -24,7 +24,7 @@ function NurserySignIn() {
 			);
 			if (data.success) {
 				const token = data.data;
-				setToken(token);
+				setAuthToken(token);
 				localStorage.setItem("authToken", token);
 				history.push("/nursery/dashboard");
 			} else {
@@ -35,7 +35,7 @@ function NurserySignIn() {
 			}
 			$form.reset();
 		},
-		[history, setToken]
+		[history, setAuthToken]
 	);
 	return (
 		<div>

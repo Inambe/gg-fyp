@@ -1,9 +1,25 @@
 import { atom, selector } from "recoil";
 import jwt_decode from "jwt-decode";
 
-const authState = atom({
-	key: "authState",
+const tokenToAuthState = (token) => {
+	if (!token) return null;
+	try {
+		return jwt_decode(token);
+	} catch {
+		return null;
+	}
+};
+
+export const authToken = atom({
+	key: "authToken",
 	default: localStorage.getItem("authToken"),
+});
+
+export const authState = selector({
+	key: "authState",
+	get: ({ get }) => {
+		return tokenToAuthState(get(authToken));
+	},
 });
 
 export const isNurseryAuthenticated = selector({
@@ -12,13 +28,7 @@ export const isNurseryAuthenticated = selector({
 		const token = get(authState);
 		if (!token) return false;
 
-		let payload;
-		try {
-			payload = jwt_decode(token);
-			return payload.userType === "nursery";
-		} catch {
-			return false;
-		}
+		return token.userType === "nursery";
 	},
 });
 
@@ -28,14 +38,6 @@ export const isUserAuthenticated = selector({
 		const token = get(authState);
 		if (!token) return false;
 
-		let payload;
-		try {
-			payload = jwt_decode(token);
-			return payload.userType === "user";
-		} catch {
-			return false;
-		}
+		return token.userType === "user";
 	},
 });
-
-export default authState;

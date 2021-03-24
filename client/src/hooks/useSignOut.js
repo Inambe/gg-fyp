@@ -1,9 +1,8 @@
 import { useSetRecoilState } from "recoil";
-import authState from "../atoms/auth";
+import { authToken } from "../atoms/auth";
 
 const useSignOut = () => {
 	localStorage.removeItem("authToken");
-	const setAuthState = useSetRecoilState(authState);
-	setAuthState(null);
+	useSetRecoilState(authToken)(null);
 };
 export default useSignOut;
