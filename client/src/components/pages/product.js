@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import GGClient from "../../api/GGClient";
 import { uploadsUrl } from "../../api/utils";
+import { isUserAuthenticated } from "../../atoms/auth";
 
 function Product() {
 	const [product, setProduct] = useState();
+	const _isUserAuthenticated = useRecoilValue(isUserAuthenticated);
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -38,6 +42,15 @@ function Product() {
 						Address — {product.nursery.location} <br />
 						Contact — {product.nursery.email} <br />
 					</h4>
+					{_isUserAuthenticated && (
+						<Button
+							as={Link}
+							to={`/products/${product._id}/chat/`}
+							className="mt-3"
+						>
+							Chat with Seller
+						</Button>
+					)}
 				</div>
 			</Col>
 		</Row>
