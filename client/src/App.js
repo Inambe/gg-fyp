@@ -16,6 +16,11 @@ import "./App.css";
 import NurseryProducts from "./components/pages/nursery/products";
 import UpdateProfile from "./components/pages/nursery/updateProfile";
 import Product from "./components/pages/product";
+import UserSignUp from "./components/pages/user/sign-up";
+import UserSignIn from "./components/pages/user/sign-in";
+import UserDashboard from "./components/pages/user/dashboard";
+import UserPrivateRoute from "./auth/userRoute";
+import UserSignOut from "./components/pages/user/signOut";
 
 function App() {
 	return (
@@ -59,6 +64,26 @@ function App() {
 						<Route path="/nursery/sign-up" exact>
 							<NurserySignUp />
 						</Route>
+
+						{/* User Routes */}
+						<UserPrivateRoute
+							path="/user/dashboard"
+							exact
+							component={UserDashboard}
+						/>
+						<UserPrivateRoute
+							path="/user/sign-out"
+							exact
+							component={UserSignOut}
+						/>
+						<Route path="/user/sign-in" exact>
+							<UserSignIn />
+						</Route>
+						<Route path="/user/sign-up" exact>
+							<UserSignUp />
+						</Route>
+						{/* / */}
+
 						<Route path="/products" exact>
 							<Plants />
 						</Route>

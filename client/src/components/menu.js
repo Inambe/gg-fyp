@@ -10,10 +10,12 @@ import {
 	Container,
 } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
-import { isNurseryAuthenticated } from "../atoms/auth";
+import { isNurseryAuthenticated, isUserAuthenticated } from "../atoms/auth";
 
 function MainMenu() {
 	const _isNurseryAuthenticated = useRecoilValue(isNurseryAuthenticated);
+	const _isUserAuthenticated = useRecoilValue(isUserAuthenticated);
+
 	return (
 		<Navbar bg="primary" expand="lg" variant="dark">
 			<Container>
@@ -46,6 +48,26 @@ function MainMenu() {
 								</RLink>
 								<RLink
 									to="/nursery/sign-in"
+									component={NavDropdown.Item}
+								>
+									Sign-in
+								</RLink>
+							</NavDropdown>
+						)}
+						{_isUserAuthenticated ? (
+							<RLink to="/user/dashboard" component={Nav.Link}>
+								Dashboard
+							</RLink>
+						) : (
+							<NavDropdown title="User" id="basic-nav-dropdown">
+								<RLink
+									to="/user/sign-up"
+									component={NavDropdown.Item}
+								>
+									Sign-up
+								</RLink>
+								<RLink
+									to="/user/sign-in"
 									component={NavDropdown.Item}
 								>
 									Sign-in

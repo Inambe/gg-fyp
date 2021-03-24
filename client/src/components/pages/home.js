@@ -35,8 +35,8 @@ function Home() {
 				<h1 className="display-4">Latest</h1>
 				<Row>
 					{products.length &&
-						products.map((product) => (
-							<ProductCard product={product} />
+						products.map((product, i) => (
+							<ProductCard product={product} key={i} />
 						))}
 				</Row>
 				<div className="d-flex justify-content-center py-3">

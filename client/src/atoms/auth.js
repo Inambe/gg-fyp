@@ -22,4 +22,20 @@ export const isNurseryAuthenticated = selector({
 	},
 });
 
+export const isUserAuthenticated = selector({
+	key: "isUserAuthenticated",
+	get: ({ get }) => {
+		const token = get(authState);
+		if (!token) return false;
+
+		let payload;
+		try {
+			payload = jwt_decode(token);
+			return payload.userType === "user";
+		} catch {
+			return false;
+		}
+	},
+});
+
 export default authState;
