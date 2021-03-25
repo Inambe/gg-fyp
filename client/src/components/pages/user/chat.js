@@ -62,8 +62,6 @@ function UserChat() {
 		[nursery]
 	);
 
-	console.log(messages);
-
 	return nursery && user ? (
 		<div>
 			<h1 className="text-center">Chat with {nursery.name}.</h1>

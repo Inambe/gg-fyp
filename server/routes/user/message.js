@@ -3,6 +3,7 @@ const jwt = require("express-jwt");
 const { body, validationResult } = require("express-validator");
 const Message = require("../../models/mongoose/message");
 const Product = require("../../models/mongoose/product");
+const _ = require("lodash");
 const isUser = require("./isUser");
 
 const router = express.Router();
@@ -52,6 +53,27 @@ router.get("/list/:nurseryId", async (req, res) => {
 			.find();
 
 		return res.json({ success: true, data: messages });
+	} catch (e) {
+		return res.send({ success: false, message: e.message });
+	}
+});
+
+router.get("/list", async (req, res) => {
+	try {
+		const userId = req.user.sub;
+		const messages = await Message.where("user", userId)
+			.select("nursery")
+			.find()
+			.populate("nursery")
+			.exec();
+
+		let nurseries = [];
+		messages.forEach((msg) => {
+			nurseries.push(msg.nursery);
+		});
+		nurseries = _.uniq(nurseries);
+
+		return res.json({ success: true, data: nurseries });
 	} catch (e) {
 		return res.send({ success: false, message: e.message });
 	}

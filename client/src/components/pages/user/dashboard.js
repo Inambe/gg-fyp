@@ -6,7 +6,11 @@ function UserDashboard() {
 	return (
 		<div>
 			<h1 className="text-center">User Dashboard.</h1>
-			<ListGroup className="py-4">{/* Coming Soon */}</ListGroup>
+			<ListGroup className="py-4">
+				<ListGroup.Item>
+					<Link to="/user/chat">Messages</Link>
+				</ListGroup.Item>
+			</ListGroup>
 			<div className="text-center mt-4">
 				<Link to="/user/sign-out">Logout</Link>
 			</div>
