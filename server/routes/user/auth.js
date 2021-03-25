@@ -1,9 +1,9 @@
 const express = require("express");
 const { body, validationResult } = require("express-validator");
-const jsonwebtoken = require("jsonwebtoken");
 
 const User = require("../../models/mongoose/user");
 const { hash, verify } = require("../../models/password");
+const { createToken } = require("../../models/token");
 
 const router = express.Router();
 
@@ -80,16 +80,7 @@ router.post(
 			});
 
 		try {
-			const token = jsonwebtoken.sign(
-				{
-					userType: "user",
-					sub: user._id,
-				},
-				process.env.SECRET,
-				{
-					expiresIn: "30 days",
-				}
-			);
+			const token = createToken("user", user);
 			return res.json({
 				success: true,
 				data: token,
