@@ -21,6 +21,7 @@ import UserSignIn from "./components/pages/user/sign-in";
 import UserDashboard from "./components/pages/user/dashboard";
 import UserPrivateRoute from "./auth/userRoute";
 import UserSignOut from "./components/pages/user/signOut";
+import UserChat from "./components/pages/user/chat";
 
 function App() {
 	return (
@@ -70,6 +71,11 @@ function App() {
 							path="/user/dashboard"
 							exact
 							component={UserDashboard}
+						/>
+						<UserPrivateRoute
+							path="/user/chat/:nurseryId"
+							exact
+							component={UserChat}
 						/>
 						<UserPrivateRoute
 							path="/user/sign-out"

@@ -45,10 +45,10 @@ function Product() {
 					{_isUserAuthenticated && (
 						<Button
 							as={Link}
-							to={`/products/${product._id}/chat/`}
+							to={`/user/chat/${product.nursery._id}/`}
 							className="mt-3"
 						>
-							Chat with Seller
+							Chat with Nursery
 						</Button>
 					)}
 				</div>
