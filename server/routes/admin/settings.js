@@ -22,13 +22,14 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/update", async (req, res) => {
-	const { title, description } = req.body;
+	const { title, description, about } = req.body;
 
 	const settings = await Settings.findOne();
 
 	settings.set({
 		title,
 		description,
+		about,
 	});
 
 	try {

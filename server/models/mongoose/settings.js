@@ -8,6 +8,9 @@ const SettingsSchema = new mongoose.Schema(
 		description: {
 			type: String,
 		},
+		about: {
+			type: String,
+		},
 	},
 	{
 		timestamps: true,

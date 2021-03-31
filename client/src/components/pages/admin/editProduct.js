@@ -88,6 +88,18 @@ function AdminUpdateSettings() {
 								/>
 							</Form.Group>
 
+							<Form.Group controlId="about">
+								<Form.Label>About Us*</Form.Label>
+								<Form.Control
+									value={settings.about}
+									required
+									name="about"
+									onChange={changeField}
+									as="textarea"
+									rows={6}
+								/>
+							</Form.Group>
+
 							<Button variant="primary" type="submit">
 								Submit
 							</Button>
