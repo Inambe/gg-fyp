@@ -23,6 +23,8 @@ import UserPrivateRoute from "./auth/userRoute";
 import UserSignOut from "./components/pages/user/signOut";
 import UserChat from "./components/pages/user/chat";
 import UserChats from "./components/pages/user/chats";
+import NurseryChats from "./components/pages/nursery/chats";
+import NurseryChat from "./components/pages/nursery/chat";
 
 function App() {
 	return (
@@ -66,6 +68,18 @@ function App() {
 						<Route path="/nursery/sign-up" exact>
 							<NurserySignUp />
 						</Route>
+						{/* Nursery Routes */}
+						<NurseryPrivateRoute
+							path="/nursery/chat"
+							exact
+							component={NurseryChats}
+						/>
+						<NurseryPrivateRoute
+							path="/nursery/chat/:userId"
+							exact
+							component={NurseryChat}
+						/>
+						{/* / */}
 
 						{/* User Routes */}
 						<UserPrivateRoute

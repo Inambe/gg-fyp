@@ -8,6 +8,9 @@ function NurseryDashboard() {
 			<h1 className="text-center">Nursery Dashboard.</h1>
 			<ListGroup className="py-4">
 				<ListGroup.Item>
+					<Link to="/nursery/chat">Messages</Link>
+				</ListGroup.Item>
+				<ListGroup.Item>
 					<Link to="/nursery/products">Manage Products</Link>
 				</ListGroup.Item>
 				<ListGroup.Item>
