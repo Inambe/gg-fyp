@@ -29,6 +29,7 @@ import AdminPrivateRoute from "./auth/adminRoute";
 import AdminDashboard from "./components/pages/admin/dashboard";
 import AdminSignIn from "./components/pages/admin/sign-in";
 import AdminSignOut from "./components/pages/admin/signOut";
+import AdminUpdateSettings from "./components/pages/admin/editProduct";
 
 function App() {
 	return (
@@ -83,6 +84,11 @@ function App() {
 							path="/admin/sign-out"
 							exact
 							component={AdminSignOut}
+						/>
+						<AdminPrivateRoute
+							path="/admin/settings"
+							exact
+							component={AdminUpdateSettings}
 						/>
 						<Route path="/admin/sign-in" exact>
 							<AdminSignIn />

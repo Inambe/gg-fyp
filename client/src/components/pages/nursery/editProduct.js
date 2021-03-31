@@ -12,7 +12,6 @@ function NurseryEditProduct() {
 
 	const updateProduct = useCallback(
 		async (e) => {
-			console.log(e);
 			e.preventDefault();
 			const $form = e.target;
 			let formData = new FormData($form);
