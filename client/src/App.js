@@ -29,7 +29,7 @@ import AdminPrivateRoute from "./auth/adminRoute";
 import AdminDashboard from "./components/pages/admin/dashboard";
 import AdminSignIn from "./components/pages/admin/sign-in";
 import AdminSignOut from "./components/pages/admin/signOut";
-import AdminUpdateSettings from "./components/pages/admin/editProduct";
+import AdminUpdateSettings from "./components/pages/admin/settings";
 
 function App() {
 	return (
