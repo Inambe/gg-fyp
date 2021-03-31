@@ -16,7 +16,7 @@ function Plants() {
 	}, []);
 	return (
 		<div>
-			<h1 className="display-4">Products</h1>
+			<h1 className="display-5 mb-3">Products</h1>
 			<Row>
 				{products.length &&
 					products.map((product) => (
