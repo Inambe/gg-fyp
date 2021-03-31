@@ -30,6 +30,7 @@ import AdminDashboard from "./components/pages/admin/dashboard";
 import AdminSignIn from "./components/pages/admin/sign-in";
 import AdminSignOut from "./components/pages/admin/signOut";
 import AdminUpdateSettings from "./components/pages/admin/settings";
+import Search from "./components/pages/search";
 
 function App() {
 	return (
@@ -136,6 +137,10 @@ function App() {
 							<UserSignUp />
 						</Route>
 						{/* / */}
+
+						<Route path="/search/:query" exact>
+							<Search />
+						</Route>
 
 						<Route path="/products" exact>
 							<Plants />

@@ -19,6 +19,21 @@ router.get("/list", async (req, res) => {
 	}
 });
 
+router.get("/search", async (req, res) => {
+	try {
+		const query = req.query.query;
+		const queryExp = new RegExp(query, "i");
+
+		const products = await Product.find({ name: queryExp })
+			.populate("nursery")
+			.exec();
+
+		return res.json({ success: true, data: products });
+	} catch (e) {
+		return res.send({ success: false, message: e.message });
+	}
+});
+
 router.get("/:id", async (req, res) => {
 	try {
 		const productId = req.params.id;

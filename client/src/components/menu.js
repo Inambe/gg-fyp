@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RLink } from "react-router-dom";
+import { Link as RLink, useHistory } from "react-router-dom";
 import {
 	FormControl,
 	Nav,
@@ -20,6 +20,13 @@ function MainMenu() {
 	const _isNurseryAuthenticated = useRecoilValue(isNurseryAuthenticated);
 	const _isUserAuthenticated = useRecoilValue(isUserAuthenticated);
 	const _isAdminAuthenticated = useRecoilValue(isAdminAuthenticated);
+	const history = useHistory();
+
+	const doSearch = (e) => {
+		e.preventDefault();
+		const query = e.target.query.value;
+		history.push(`/search/${query}`);
+	};
 
 	return (
 		<Navbar bg="primary" expand="lg" variant="dark">
@@ -85,13 +92,17 @@ function MainMenu() {
 							</RLink>
 						)}
 					</Nav>
-					<Form inline>
+					<Form inline onSubmit={doSearch}>
 						<FormControl
-							type="text"
+							type="search"
+							name="query"
+							id="query"
 							placeholder="Search"
 							className="mr-sm-2"
 						/>
-						<Button variant="secondary">Search</Button>
+						<Button type="submit" variant="secondary">
+							Search
+						</Button>
 					</Form>
 				</Navbar.Collapse>
 			</Container>
