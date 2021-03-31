@@ -7,18 +7,17 @@ import MainMenu from "../menu";
 function MainLayout({ children }) {
 	return (
 		<div>
+			<MainHeader>
+				<MainMenu />
+			</MainHeader>
 			<Suspense
 				fallback={<h1 className="p-5 text-center">Loading ...</h1>}
 			>
-				<MainHeader>
-					<MainMenu />
-				</MainHeader>
 				<Container className="py-4">{children}</Container>
-				<footer className="text-center py-5">
-					© {new Date().getFullYear()} Green Gate. All Rights
-					Reserved.
-				</footer>
 			</Suspense>
+			<footer className="text-center py-5">
+				© {new Date().getFullYear()} Green Gate. All Rights Reserved.
+			</footer>
 		</div>
 	);
 }
