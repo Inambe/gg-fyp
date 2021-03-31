@@ -41,7 +41,7 @@ function NurseryProducts() {
 					</Button>
 				</div>
 			</div>
-			<Table striped bordered hover>
+			<Table className="bg-white" striped bordered hover>
 				<thead>
 					<tr>
 						<th>Picture</th>
