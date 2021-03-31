@@ -13,7 +13,7 @@ function MainLayout({ children }) {
 				<MainHeader>
 					<MainMenu />
 				</MainHeader>
-				<Container className="py-5">{children}</Container>
+				<Container className="py-4">{children}</Container>
 				<footer className="text-center py-5">
 					© {new Date().getFullYear()} Green Gate. All Rights
 					Reserved.

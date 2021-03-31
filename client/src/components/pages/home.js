@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button, Jumbotron, Row } from "react-bootstrap";
+import { Button, Carousel, Jumbotron, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
+
 import GGClient from "../../api/GGClient";
 import { settingsState } from "../../atoms/settings";
 import ProductCard from "../productCard";
@@ -21,7 +22,24 @@ function Home() {
 
 	return (
 		<>
-			<Jumbotron className="rounded-0">
+			<Carousel>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="media/freddie-marriage-UcfKYTan-LU-unsplash.jpg"
+						alt="1st slide"
+					/>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
+						src="media/brina-blum-s5-NmxNA-7c-unsplash.jpg"
+						alt="2nd slide"
+					/>
+				</Carousel.Item>
+			</Carousel>
+
+			<Jumbotron className="my-5 rounded-0">
 				<h1 className="display-3">{settings.title}</h1>
 				<p className="lead">{settings.description}</p>
 				<p>
@@ -31,7 +49,7 @@ function Home() {
 				</p>
 			</Jumbotron>
 			<section>
-				<h1 className="display-4">Latest</h1>
+				<h1 className="display-5">Latest</h1>
 				<Row>
 					{products.length &&
 						products.map((product, i) => (

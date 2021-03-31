@@ -24,19 +24,14 @@ function Product() {
 	if (!product) return <div>Loading ...</div>;
 
 	return (
-		<Row>
+		<Row className="py-4 bg-white">
 			<Col md={6}>
-				<Image
-					src={uploadsUrl(product.picture)}
-					className="mx-auto d-block"
-					alt=""
-					fluid
-				/>
+				<Image src={uploadsUrl(product.picture)} alt="" fluid />
 			</Col>
 			<Col>
-				<h1 className="display-4">{product.name}</h1>
+				<h1 className="display-5">{product.name}</h1>
 				<div className="py-3">
-					<h3>Seller:</h3>
+					<h4>Seller:</h4>
 					<h4>
 						Name — {product.nursery.name} <br />
 						Address — {product.nursery.location} <br />
