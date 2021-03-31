@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function AdminDashboard() {
 	return (
 		<div>
-			<h1 className="text-center">Nursery Dashboard.</h1>
+			<h1 className="text-center">Admin Dashboard.</h1>
 			<ListGroup className="py-4">
 				<ListGroup.Item>
 					<Link to="/admin/settings">Website Settings</Link>
