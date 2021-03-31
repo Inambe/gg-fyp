@@ -41,3 +41,13 @@ export const isUserAuthenticated = selector({
 		return token.userType === "user";
 	},
 });
+
+export const isAdminAuthenticated = selector({
+	key: "isAdminAuthenticated",
+	get: ({ get }) => {
+		const token = get(authState);
+		if (!token) return false;
+
+		return token.userType === "admin";
+	},
+});

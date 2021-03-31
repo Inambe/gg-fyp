@@ -48,5 +48,6 @@ router.get("/display/nursery/:id", async (req, res) => {
 
 router.use("/products", require("./products"));
 router.use("/user", require("./user"));
+router.use("/admin", require("./admin"));
 
 module.exports = router;

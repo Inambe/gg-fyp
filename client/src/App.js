@@ -25,6 +25,10 @@ import UserChat from "./components/pages/user/chat";
 import UserChats from "./components/pages/user/chats";
 import NurseryChats from "./components/pages/nursery/chats";
 import NurseryChat from "./components/pages/nursery/chat";
+import AdminPrivateRoute from "./auth/adminRoute";
+import AdminDashboard from "./components/pages/admin/dashboard";
+import AdminSignIn from "./components/pages/admin/sign-in";
+import AdminSignOut from "./components/pages/admin/signOut";
 
 function App() {
 	return (
@@ -68,6 +72,23 @@ function App() {
 						<Route path="/nursery/sign-up" exact>
 							<NurserySignUp />
 						</Route>
+
+						{/* Admin Routes */}
+						<AdminPrivateRoute
+							path="/admin/dashboard"
+							exact
+							component={AdminDashboard}
+						/>
+						<AdminPrivateRoute
+							path="/admin/sign-out"
+							exact
+							component={AdminSignOut}
+						/>
+						<Route path="/admin/sign-in" exact>
+							<AdminSignIn />
+						</Route>
+						{/*  */}
+
 						{/* Nursery Routes */}
 						<NurseryPrivateRoute
 							path="/nursery/chat"
