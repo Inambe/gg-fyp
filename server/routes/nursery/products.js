@@ -19,6 +19,7 @@ router.post(
 	"/create",
 	upload.single("picture"),
 	body("name").notEmpty(),
+	body("description").notEmpty(),
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty())
@@ -35,12 +36,13 @@ router.post(
 				message: "Picture is required.",
 			});
 
-		const { name } = req.body;
+		const { name, description } = req.body;
 		const pictureFilename = picture.filename;
 		const nurseryId = req.user.sub;
 
 		const product = new Product({
 			name,
+			description,
 			picture: pictureFilename,
 			nursery: nurseryId,
 		});
@@ -91,6 +93,7 @@ router.post(
 	"/:id",
 	upload.single("picture"),
 	body("name").notEmpty(),
+	body("description").notEmpty(),
 	async (req, res) => {
 		const productId = req.params.id;
 		const product = await Product.findById(productId);
@@ -113,9 +116,10 @@ router.post(
 			product.picture = picture.filename;
 		}
 
-		const { name } = req.body;
+		const { name, description } = req.body;
 
 		product.name = name;
+		product.description = description;
 
 		try {
 			await product.save();

@@ -7,6 +7,10 @@ const ProductSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		description: {
+			type: String,
+			required: true,
+		},
 		nursery: {
 			type: Schema.Types.ObjectId,
 			ref: "nursery",

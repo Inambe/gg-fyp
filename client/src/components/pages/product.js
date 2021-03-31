@@ -36,12 +36,18 @@ function Product() {
 			<Col>
 				<h1 className="display-4">{product.name}</h1>
 				<div className="py-3">
-					<h3>Seller</h3>
+					<h3>Seller:</h3>
 					<h4>
 						Name — {product.nursery.name} <br />
 						Address — {product.nursery.location} <br />
 						Contact — {product.nursery.email} <br />
 					</h4>
+					<div
+						className="py-3"
+						dangerouslySetInnerHTML={{
+							__html: product.description,
+						}}
+					/>
 					{_isUserAuthenticated && (
 						<Button
 							as={Link}

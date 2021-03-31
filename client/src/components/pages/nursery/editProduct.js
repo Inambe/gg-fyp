@@ -59,7 +59,7 @@ function NurseryEditProduct() {
 				)}
 				{product && (
 					<>
-						<h1 className="text-center mb-5">Create Product</h1>
+						<h1 className="text-center mb-5">Edit Product</h1>
 						{feedback && (
 							<Alert
 								variant={
@@ -81,6 +81,18 @@ function NurseryEditProduct() {
 									required
 									name="name"
 									onChange={changeField}
+								/>
+							</Form.Group>
+
+							<Form.Group controlId="description">
+								<Form.Label>Description*</Form.Label>
+								<Form.Control
+									value={product.description}
+									required
+									name="description"
+									onChange={changeField}
+									as="textarea"
+									rows={6}
 								/>
 							</Form.Group>
 

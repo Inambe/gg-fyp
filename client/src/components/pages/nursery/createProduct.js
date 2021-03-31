@@ -58,6 +58,16 @@ function NurseryCreateProduct() {
 							/>
 						</Form.Group>
 
+						<Form.Group controlId="description">
+							<Form.Label>Description*</Form.Label>
+							<Form.Control
+								required
+								name="description"
+								as="textarea"
+								rows={6}
+							/>
+						</Form.Group>
+
 						<Form.Group controlId="picture">
 							<Form.Label>Picture*</Form.Label>
 							<Form.Control type="file" required name="picture" />
