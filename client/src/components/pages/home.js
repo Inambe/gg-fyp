@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Button, Jumbotron, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import GGClient from "../../api/GGClient";
+import { settingsState } from "../../atoms/settings";
 import ProductCard from "../productCard";
 
 function Home() {
 	const [products, setProducts] = useState([]);
+	const settings = useRecoilValue(settingsState);
 
 	useEffect(() => {
 		(async () => {
-			const { data } = await GGClient.get("/products/list/?limit=3");
-			if (data.success) {
-				setProducts(data.data);
+			const productsRes = await GGClient.get("/products/list/?limit=3");
+			if (productsRes.data.success) {
+				setProducts(productsRes.data.data);
 			}
 		})();
 	}, []);
@@ -19,12 +22,8 @@ function Home() {
 	return (
 		<>
 			<Jumbotron className="rounded-0">
-				<h1 className="display-3">Green Gate</h1>
-				<p className="lead">
-					Green Gate provides a platform for both nurseries and plant
-					enthusiasts to buy, sell, and get information about
-					different plants.
-				</p>
+				<h1 className="display-3">{settings.title}</h1>
+				<p className="lead">{settings.description}</p>
 				<p>
 					<Button as={Link} to="/nursery/sign-up" variant="primary">
 						Sign-up as Nursery
