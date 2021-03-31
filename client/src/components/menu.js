@@ -25,7 +25,9 @@ function MainMenu() {
 	const doSearch = (e) => {
 		e.preventDefault();
 		const query = e.target.query.value;
-		history.push(`/search/${query}`);
+		if (query) {
+			history.push(`/search/${query}`);
+		}
 	};
 
 	return (
