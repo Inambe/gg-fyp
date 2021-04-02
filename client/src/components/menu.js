@@ -101,19 +101,32 @@ function MainMenu() {
 						)}
 						{_isAdminAuthenticated && (
 							<RLink to="/admin/dashboard" component={Nav.Link}>
-								Admin Dashboard
+								Admin
 							</RLink>
 						)}
 					</Nav>
-					<Form inline onSubmit={doSearch}>
+					<Form
+						inline
+						onSubmit={doSearch}
+						style={{
+							flexBasis: 290,
+							justifyContent: "flex-end",
+							flexShrink: 0,
+						}}
+					>
 						<FormControl
 							type="search"
 							name="query"
 							id="query"
 							placeholder="Search"
 							className="mr-sm-2"
+							style={{ maxWidth: 200 }}
 						/>
-						<Button type="submit" variant="secondary">
+						<Button
+							type="submit"
+							variant="secondary"
+							style={{ width: 75 }}
+						>
 							Search
 						</Button>
 					</Form>
