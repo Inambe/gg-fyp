@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import GGClient from "../../api/GGClient";
 import { uploadsUrl } from "../../api/utils";
 import { isUserAuthenticated } from "../../atoms/auth";
+import Loading from "../loading";
 
 function Product() {
 	const [product, setProduct] = useState();
@@ -21,7 +22,7 @@ function Product() {
 		})();
 	}, [id]);
 
-	if (!product) return <div>Loading ...</div>;
+	if (!product) return <Loading />;
 
 	return (
 		<Row className="py-4 bg-white">

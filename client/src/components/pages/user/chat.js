@@ -7,6 +7,7 @@ import clsx from "clsx";
 import GGClient from "../../../api/GGClient";
 import { normalizeDateTime, normalizeFD } from "../../../api/utils";
 import { authState } from "../../../atoms/auth";
+import Loading from "../../loading";
 
 function UserChat() {
 	const { nurseryId } = useParams();
@@ -122,7 +123,7 @@ function UserChat() {
 			</Form>
 		</div>
 	) : (
-		<div>Loading ...</div>
+		<Loading />
 	);
 }
 

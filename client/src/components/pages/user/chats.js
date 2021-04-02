@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import GGClient from "../../../api/GGClient";
 import { authState } from "../../../atoms/auth";
+import Loading from "../../loading";
 
 function UserChats() {
 	const { sub: userId } = useRecoilValue(authState);
@@ -37,7 +38,7 @@ function UserChats() {
 			)}
 		</div>
 	) : (
-		<div>Loading ...</div>
+		<Loading />
 	);
 }
 

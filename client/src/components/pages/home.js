@@ -5,10 +5,11 @@ import { useRecoilValue } from "recoil";
 
 import GGClient from "../../api/GGClient";
 import { settingsState } from "../../atoms/settings";
+import Loading from "../loading";
 import ProductCard from "../productCard";
 
 function Home() {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState();
 	const settings = useRecoilValue(settingsState);
 
 	useEffect(() => {
@@ -51,10 +52,13 @@ function Home() {
 			<section>
 				<h1 className="display-5">Latest</h1>
 				<Row>
-					{products.length &&
+					{products ? (
 						products.map((product, i) => (
 							<ProductCard product={product} key={i} />
-						))}
+						))
+					) : (
+						<Loading />
+					)}
 				</Row>
 				<div className="d-flex justify-content-center py-3">
 					<Button as={Link} to="/products" variant="primary">

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import GGClient from "../../api/GGClient";
+import Loading from "../loading";
 import ProductCard from "../productCard";
 
 function Plants() {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState();
 
 	useEffect(() => {
 		(async () => {
@@ -18,10 +19,11 @@ function Plants() {
 		<div>
 			<h1 className="display-5 mb-3">Products</h1>
 			<Row>
-				{products.length &&
-					products.map((product) => (
-						<ProductCard product={product} />
-					))}
+				{products ? (
+					products.map((product) => <ProductCard product={product} />)
+				) : (
+					<Loading />
+				)}
 			</Row>
 		</div>
 	);
