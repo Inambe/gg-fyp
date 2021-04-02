@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {
 	FormControl,
 	Nav,
@@ -15,6 +15,18 @@ import {
 	isNurseryAuthenticated,
 	isUserAuthenticated,
 } from "../atoms/auth";
+
+const RLink = (props) => {
+	return (
+		<NavLink
+			activeStyle={{
+				borderBottom: "2px solid rgba(255,255,255,.75)",
+				color: "rgba(255,255,255,.75)",
+			}}
+			{...props}
+		/>
+	);
+};
 
 function MainMenu() {
 	const _isNurseryAuthenticated = useRecoilValue(isNurseryAuthenticated);
@@ -33,9 +45,9 @@ function MainMenu() {
 	return (
 		<Navbar bg="primary" expand="lg" variant="dark">
 			<Container>
-				<RLink to="/" component={Navbar.Brand}>
+				<NavLink to="/" component={Navbar.Brand}>
 					Green Gate
-				</RLink>
+				</NavLink>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
