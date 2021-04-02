@@ -44,13 +44,16 @@ function Product() {
 							__html: product.description,
 						}}
 					/>
-					{_isUserAuthenticated && (
+					{_isUserAuthenticated ? (
 						<Button
 							as={Link}
 							to={`/user/chat/${product.nursery._id}/`}
-							className="mt-3"
 						>
 							Chat with Nursery
+						</Button>
+					) : (
+						<Button as={Link} to="/user/sign-in">
+							Sign in to Chat
 						</Button>
 					)}
 				</div>
