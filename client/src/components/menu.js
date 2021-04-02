@@ -20,8 +20,7 @@ const RLink = (props) => {
 	return (
 		<NavLink
 			activeStyle={{
-				borderBottom: "2px solid rgba(255,255,255,.75)",
-				color: "rgba(255,255,255,.75)",
+				borderBottom: "2px solid #f6f6f6",
 			}}
 			{...props}
 		/>
