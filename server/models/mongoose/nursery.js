@@ -10,7 +10,11 @@ const NurserySchema = new mongoose.Schema(
 			type: String,
 			index: true,
 			unique: true,
-			required: true,
+		},
+		phone: {
+			type: String,
+			index: true,
+			unique: true,
 		},
 		password: {
 			type: String,

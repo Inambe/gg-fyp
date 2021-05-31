@@ -24,7 +24,6 @@ router.get("/", async (req, res) => {
 router.post(
 	"/",
 	body("name").notEmpty(),
-	body("email").isEmail(),
 	body("location").notEmpty(),
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -35,7 +34,13 @@ router.post(
 				data: errors.array(),
 			});
 
-		const { name, email, location } = req.body;
+		const { name, email, phone, location } = req.body;
+
+		if (!email && !phone)
+			return res.json({
+				success: false,
+				message: "Phone or Email should be provided.",
+			});
 
 		const nurseryId = req.user.sub;
 		const nursery = await Nursery.findById(nurseryId);
@@ -51,9 +56,22 @@ router.post(
 			if (matchingAccounts > 0)
 				return res.json({
 					success: false,
-					message: "This email is associated with another account.",
+					message: "This Email is associated with another account.",
 				});
 			nursery.email = email;
+		}
+
+		// if phone changed
+		if (phone !== nursery.phone) {
+			const matchingAccounts = await Nursery.countDocuments({
+				phone: phone,
+			});
+			if (matchingAccounts > 0)
+				return res.json({
+					success: false,
+					message: "This Phone is associated with another account.",
+				});
+			nursery.phone = phone;
 		}
 
 		try {

@@ -66,10 +66,18 @@ function Product() {
 								<th>Address</th>
 								<td>{product.nursery.location}</td>
 							</tr>
-							<tr>
-								<th>Contact</th>
-								<td>{product.nursery.email}</td>
-							</tr>
+							{product.nursery.email && (
+								<tr>
+									<th>Email</th>
+									<td>{product.nursery.email}</td>
+								</tr>
+							)}
+							{product.nursery.phone && (
+								<tr>
+									<th>Phone</th>
+									<td>{product.nursery.phone}</td>
+								</tr>
+							)}
 						</tbody>
 					</Table>
 

@@ -11,7 +11,6 @@ router.post(
 	"/sign-up",
 	body("name").notEmpty(),
 	body("location").notEmpty(),
-	body("email").isEmail(),
 	body("password").isLength({ min: 5 }),
 	async (req, res, next) => {
 		const errors = validationResult(req);
@@ -22,19 +21,31 @@ router.post(
 				data: errors.array(),
 			});
 
-		const { name, email, password, location } = req.body;
+		const { name, email, phone, password, location } = req.body;
 
-		const matchingAccounts = await Nursery.countDocuments({ email: email });
-		if (matchingAccounts > 0)
+		if (!email && !phone)
 			return res.json({
 				success: false,
-				message: "This email is associated with another account.",
-				data: errors.array(),
+				message: "Phone or Email should be provided.",
+			});
+
+		const matchingAccountsEmail = await Nursery.countDocuments({
+			email: email,
+		});
+		const matchingAccountsPhone = await Nursery.countDocuments({
+			phone: phone,
+		});
+
+		if (matchingAccountsEmail > 0 || matchingAccountsPhone > 0)
+			return res.json({
+				success: false,
+				message: "This Email/Phone is associated with another account.",
 			});
 
 		const nursery = new Nursery({
 			name,
 			email,
+			phone,
 			password: await hash(password),
 			location,
 		});
@@ -42,7 +53,7 @@ router.post(
 			await nursery.save();
 			return res.json({
 				success: true,
-				message: "User created successfully.",
+				message: "Nursery created successfully.",
 			});
 		} catch (e) {
 			return res.json({
@@ -55,7 +66,7 @@ router.post(
 
 router.post(
 	"/sign-in",
-	body("email").isEmail(),
+	body("username").notEmpty(),
 	body("password").isLength({ min: 5 }),
 	async (req, res, next) => {
 		const errors = validationResult(req);
@@ -66,13 +77,16 @@ router.post(
 				data: errors.array(),
 			});
 
-		const { email, password } = req.body;
+		const { username, password } = req.body;
 
-		const nursery = await Nursery.findOne({ email: email });
+		const nursery = await Nursery.findOne({
+			$or: [{ email: username }, { phone: username }],
+		});
+
 		if (!nursery)
 			return res.json({
 				success: false,
-				message: "No Nursery was found with this email.",
+				message: "No Nursery was found with this username.",
 			});
 
 		const passwordGood = await verify(password, nursery.password);

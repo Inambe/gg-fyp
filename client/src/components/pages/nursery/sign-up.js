@@ -64,12 +64,19 @@ function NurserySignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="email">
-							<Form.Label>Email*</Form.Label>
+							<Form.Label>Email</Form.Label>
 							<Form.Control
 								type="email"
 								placeholder="e.g. nursery@mail.com"
-								required
 								name="email"
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="phone">
+							<Form.Label>Phone</Form.Label>
+							<Form.Control
+								placeholder="e.g. +92 330 4534234"
+								name="phone"
 							/>
 						</Form.Group>
 

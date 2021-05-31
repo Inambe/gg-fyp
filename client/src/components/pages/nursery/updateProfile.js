@@ -66,12 +66,20 @@ function UpdateProfile() {
 						</Form.Group>
 
 						<Form.Group controlId="email">
-							<Form.Label>Email*</Form.Label>
+							<Form.Label>Email</Form.Label>
 							<Form.Control
 								type="email"
 								value={profile?.email}
-								required
 								name="email"
+								onChange={changeField}
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="phone">
+							<Form.Label>Phone</Form.Label>
+							<Form.Control
+								value={profile?.phone}
+								name="phone"
 								onChange={changeField}
 							/>
 						</Form.Group>

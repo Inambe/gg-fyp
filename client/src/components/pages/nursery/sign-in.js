@@ -52,13 +52,12 @@ function NurserySignIn() {
 						</Alert>
 					)}
 					<Form method="POST" onSubmit={signIn}>
-						<Form.Group controlId="email">
-							<Form.Label>Email*</Form.Label>
+						<Form.Group controlId="username">
+							<Form.Label>Username*</Form.Label>
 							<Form.Control
-								type="email"
-								placeholder="e.g. ahmed@mail.com"
+								placeholder="Phone/Email"
 								required
-								name="email"
+								name="username"
 							/>
 						</Form.Group>
 
