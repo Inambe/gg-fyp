@@ -9,7 +9,7 @@ function Plants() {
 
 	useEffect(() => {
 		(async () => {
-			const { data } = await GGClient.get("/products/list/?limit=3");
+			const { data } = await GGClient.get("/products/list");
 			if (data.success) {
 				setProducts(data.data);
 			}
@@ -20,7 +20,9 @@ function Plants() {
 			<h1 className="display-5 mb-3">Products</h1>
 			<Row>
 				{products ? (
-					products.map((product) => <ProductCard product={product} />)
+					products.map((product, i) => (
+						<ProductCard key={i} product={product} />
+					))
 				) : (
 					<Loading />
 				)}

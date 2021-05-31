@@ -5,7 +5,7 @@ import { uploadsUrl } from "../api/utils";
 
 function ProductCard({ product }) {
 	return (
-		<Col md={4}>
+		<Col md={4} className="mb-3">
 			<Card>
 				<Card.Img variant="top" src={uploadsUrl(product.picture)} />
 				<Card.Body>
