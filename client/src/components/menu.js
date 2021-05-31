@@ -105,28 +105,15 @@ function MainMenu() {
 							</RLink>
 						)}
 					</Nav>
-					<Form
-						inline
-						onSubmit={doSearch}
-						style={{
-							flexBasis: 290,
-							justifyContent: "flex-end",
-							flexShrink: 0,
-						}}
-					>
+					<Form inline onSubmit={doSearch}>
 						<FormControl
 							type="search"
 							name="query"
 							id="query"
-							placeholder="Search"
+							placeholder="e.g. Marigold, Gujrat, etc."
 							className="mr-sm-2"
-							style={{ maxWidth: 200 }}
 						/>
-						<Button
-							type="submit"
-							variant="secondary"
-							style={{ width: 75 }}
-						>
+						<Button type="submit" variant="secondary">
 							Search
 						</Button>
 					</Form>

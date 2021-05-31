@@ -1,5 +1,6 @@
 const express = require("express");
 const Product = require("../models/mongoose/product");
+const Nursery = require("../models/mongoose/nursery");
 
 const router = express.Router();
 
@@ -24,7 +25,14 @@ router.get("/search", async (req, res) => {
 		const query = req.query.query;
 		const queryExp = new RegExp(query, "i");
 
-		const products = await Product.find({ name: queryExp })
+		const nurseries = await Nursery.find({
+			location: queryExp,
+		});
+		const nurseriesIds = nurseries.map((n) => n._id);
+
+		const products = await Product.find({
+			$or: [{ name: queryExp }, { nursery: { $in: nurseriesIds } }],
+		})
 			.populate("nursery")
 			.exec();
 
