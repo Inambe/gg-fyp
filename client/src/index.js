@@ -4,8 +4,8 @@ import { RecoilRoot } from "recoil";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "bootswatch/dist/minty/bootstrap.min.css";
-import "./index.css";
+
+import "./index.scss";
 
 ReactDOM.render(
 	<RecoilRoot>
