@@ -23,7 +23,21 @@ function Home() {
 
 	return (
 		<>
-			<Carousel>
+			<Jumbotron className="my-5 rounded-0">
+				<h1 className="display-3">{settings.title}</h1>
+				<p className="lead">{settings.description}</p>
+				<p>
+					<Button as={Link} to="/user/sign-up" variant="primary">
+						Sign-up as User
+					</Button>
+					&nbsp;&nbsp;
+					<Button as={Link} to="/nursery/sign-up" variant="primary">
+						Sign-up as Nursery
+					</Button>
+				</p>
+			</Jumbotron>
+
+			<Carousel className="mb-3">
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
@@ -40,15 +54,6 @@ function Home() {
 				</Carousel.Item>
 			</Carousel>
 
-			<Jumbotron className="my-5 rounded-0">
-				<h1 className="display-3">{settings.title}</h1>
-				<p className="lead">{settings.description}</p>
-				<p>
-					<Button as={Link} to="/nursery/sign-up" variant="primary">
-						Sign-up as Nursery
-					</Button>
-				</p>
-			</Jumbotron>
 			<section>
 				<h1 className="display-5">Latest</h1>
 				<Row>

@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import GGClient from "../../../api/GGClient";
+import { authState } from "../../../atoms/auth";
+import Loading from "../../loading";
 
 function NurseryDashboard() {
+	const { sub: nurseryId } = useRecoilValue(authState);
+	const [nursery, setNursery] = useState();
+
+	useEffect(() => {
+		(async () => {
+			const { data } = await GGClient.get(
+				"/display/nursery/" + nurseryId
+			);
+			setNursery(data.data);
+		})();
+	}, [nurseryId]);
+
+	if (!nursery) return <Loading />;
+
 	return (
 		<div>
-			<h1 className="text-center">Nursery Dashboard.</h1>
+			<h2 className="text-center">{nursery.name}'s Dashboard</h2>
 			<ListGroup className="py-4">
 				<ListGroup.Item>
 					<Link to="/nursery/chat">Messages</Link>
