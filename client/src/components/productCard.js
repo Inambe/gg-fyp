@@ -13,13 +13,26 @@ function ProductCard({ product }) {
 					<Card.Text>
 						<strong>Seller:</strong> {product.nursery.name}
 					</Card.Text>
-					<Button
-						as={Link}
-						to={`/products/${product._id}`}
-						variant="primary"
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+						}}
 					>
-						Read more
-					</Button>
+						<span className="font-weight-bold">
+							{product.price} <small>PKR</small>
+						</span>
+						<span>
+							<Button
+								as={Link}
+								to={`/products/${product._id}`}
+								variant="primary"
+							>
+								Read more
+							</Button>
+						</span>
+					</div>
 				</Card.Body>
 			</Card>
 		</Col>

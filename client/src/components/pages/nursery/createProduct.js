@@ -58,6 +58,16 @@ function NurseryCreateProduct() {
 							/>
 						</Form.Group>
 
+						<Form.Group controlId="price">
+							<Form.Label>Price*</Form.Label>
+							<Form.Control
+								type="number"
+								placeholder="e.g. 299"
+								required
+								name="price"
+							/>
+						</Form.Group>
+
 						<Form.Group controlId="description">
 							<Form.Label>Description*</Form.Label>
 							<Form.Control
@@ -65,6 +75,14 @@ function NurseryCreateProduct() {
 								name="description"
 								as="textarea"
 								rows={6}
+							/>
+						</Form.Group>
+
+						<Form.Group controlId="fertilizer">
+							<Form.Label>Fertilizer</Form.Label>
+							<Form.Control
+								name="fertilizer"
+								placeholder="e.g. Potassium, Phosphate"
 							/>
 						</Form.Group>
 

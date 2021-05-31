@@ -84,6 +84,18 @@ function NurseryEditProduct() {
 								/>
 							</Form.Group>
 
+							<Form.Group controlId="price">
+								<Form.Label>Price*</Form.Label>
+								<Form.Control
+									value={product.price}
+									type="number"
+									placeholder="e.g. 299"
+									required
+									name="price"
+									onChange={changeField}
+								/>
+							</Form.Group>
+
 							<Form.Group controlId="description">
 								<Form.Label>Description*</Form.Label>
 								<Form.Control
@@ -93,6 +105,16 @@ function NurseryEditProduct() {
 									onChange={changeField}
 									as="textarea"
 									rows={6}
+								/>
+							</Form.Group>
+
+							<Form.Group controlId="fertilizer">
+								<Form.Label>Fertilizer</Form.Label>
+								<Form.Control
+									value={product.fertilizer}
+									name="fertilizer"
+									placeholder="e.g. Potassium, Phosphate"
+									onChange={changeField}
 								/>
 							</Form.Group>
 

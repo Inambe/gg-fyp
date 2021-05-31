@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Image, Row } from "react-bootstrap";
+import { Button, Col, Image, Row, Table } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
@@ -31,19 +31,48 @@ function Product() {
 			</Col>
 			<Col>
 				<h1 className="display-5">{product.name}</h1>
-				<div className="py-3">
-					<h4>Seller:</h4>
-					<h4>
-						Name — {product.nursery.name} <br />
-						Address — {product.nursery.location} <br />
-						Contact — {product.nursery.email} <br />
-					</h4>
+				<h3>
+					{product.price} <small>PKR</small>
+				</h3>
+				<div>
 					<div
-						className="py-3"
+						className="mb-3"
 						dangerouslySetInnerHTML={{
 							__html: product.description,
 						}}
 					/>
+					{product.fertilizer && (
+						<Table bordered className="mb-3">
+							<tbody>
+								<tr>
+									<th>Fertilizer</th>
+									<td>{product.fertilizer}</td>
+								</tr>
+							</tbody>
+						</Table>
+					)}
+					<Table bordered className="mb-3">
+						<tbody>
+							<tr>
+								<th colSpan={2} className="text-center">
+									Seller
+								</th>
+							</tr>
+							<tr>
+								<th>Name</th>
+								<td>{product.nursery.name}</td>
+							</tr>
+							<tr>
+								<th>Address</th>
+								<td>{product.nursery.location}</td>
+							</tr>
+							<tr>
+								<th>Contact</th>
+								<td>{product.nursery.email}</td>
+							</tr>
+						</tbody>
+					</Table>
+
 					{_isUserAuthenticated ? (
 						<Button
 							as={Link}
