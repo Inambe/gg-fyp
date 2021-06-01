@@ -34,6 +34,19 @@ router.get("/list", async (req, res) => {
 	}
 });
 
+router.get("/list/:nurseryId", async (req, res) => {
+	try {
+		const nurseryId = req.params.nurseryId;
+		const products = await Product.find({
+			nursery: nurseryId,
+		});
+
+		return res.json({ success: true, data: products });
+	} catch (e) {
+		return res.send({ success: false, message: e.message });
+	}
+});
+
 router.get("/search", async (req, res) => {
 	try {
 		const query = req.query.query;

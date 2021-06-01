@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Image, Row, Table } from "react-bootstrap";
+import { Col, Image, Row, Table } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
 import GGClient from "../../api/GGClient";
 import { uploadsUrl } from "../../api/utils";
-import { isUserAuthenticated } from "../../atoms/auth";
+import ChatButton from "../chatButton";
 import Loading from "../loading";
 
 function Product() {
 	const [product, setProduct] = useState();
-	const _isUserAuthenticated = useRecoilValue(isUserAuthenticated);
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -60,7 +58,13 @@ function Product() {
 							</tr>
 							<tr>
 								<th>Name</th>
-								<td>{product.nursery.name}</td>
+								<td>
+									<Link
+										to={`/nurseries/${product.nursery._id}`}
+									>
+										{product.nursery.name}
+									</Link>
+								</td>
 							</tr>
 							<tr>
 								<th>Address</th>
@@ -81,18 +85,7 @@ function Product() {
 						</tbody>
 					</Table>
 
-					{_isUserAuthenticated ? (
-						<Button
-							as={Link}
-							to={`/user/chat/${product.nursery._id}/`}
-						>
-							Chat with Nursery
-						</Button>
-					) : (
-						<Button as={Link} to="/user/sign-in">
-							Sign in to Chat
-						</Button>
-					)}
+					<ChatButton nurseryId={product.nursery._id} />
 				</div>
 			</Col>
 		</Row>

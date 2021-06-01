@@ -31,6 +31,7 @@ import AdminSignIn from "./components/pages/admin/sign-in";
 import AdminSignOut from "./components/pages/admin/signOut";
 import AdminUpdateSettings from "./components/pages/admin/settings";
 import Search from "./components/pages/search";
+import Nursery from "./components/pages/nursery";
 
 function App() {
 	return (
@@ -142,6 +143,9 @@ function App() {
 							<Search />
 						</Route>
 
+						<Route path="/nurseries/:id" exact>
+							<Nursery />
+						</Route>
 						<Route path="/products" exact>
 							<Plants />
 						</Route>
