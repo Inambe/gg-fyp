@@ -62,6 +62,9 @@ function MainMenu() {
 						<RLink to="/products" component={Nav.Link}>
 							Products
 						</RLink>
+						<RLink to="/nurseries" component={Nav.Link}>
+							Nurseries
+						</RLink>
 						<RLink to="/about" component={Nav.Link}>
 							About Us
 						</RLink>
