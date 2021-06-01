@@ -8,6 +8,7 @@ import {
 	Form,
 	Button,
 	Container,
+	Image,
 } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
 import {
@@ -15,6 +16,7 @@ import {
 	isNurseryAuthenticated,
 	isUserAuthenticated,
 } from "../atoms/auth";
+import logo from "./../media/green-gate-logo.png";
 
 const RLink = (props) => {
 	return (
@@ -45,7 +47,14 @@ function MainMenu() {
 		<Navbar bg="primary" expand="lg" variant="dark">
 			<Container>
 				<NavLink to="/" component={Navbar.Brand}>
-					Green Gate
+					<Image
+						src={logo}
+						fluid
+						style={{
+							height: 37,
+						}}
+						alt="Green Gate"
+					/>
 				</NavLink>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
