@@ -53,12 +53,23 @@ router.get("/search", async (req, res) => {
 		const queryExp = new RegExp(query, "i");
 
 		const nurseries = await Nursery.find({
-			location: queryExp,
+			$or: [
+				{
+					name: queryExp,
+				},
+				{
+					location: queryExp,
+				},
+			],
 		});
 		const nurseriesIds = nurseries.map((n) => n._id);
 
 		const products = await Product.find({
-			$or: [{ name: queryExp }, { nursery: { $in: nurseriesIds } }],
+			$or: [
+				{ name: queryExp },
+				{ fertilizer: queryExp },
+				{ nursery: { $in: nurseriesIds } },
+			],
 		})
 			.populate("nursery")
 			.exec();
