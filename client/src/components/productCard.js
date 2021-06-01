@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { uploadsUrl } from "../api/utils";
 
@@ -15,7 +15,7 @@ function ProductCard({ product, noSeller }) {
 						<Card.Text>
 							<small>
 								<Link to={`/nurseries/${product.nursery._id}`}>
-									{product.nursery.name} <FaShoppingCart />
+									<FaUserCircle /> {product.nursery.name}
 								</Link>
 							</small>
 						</Card.Text>
