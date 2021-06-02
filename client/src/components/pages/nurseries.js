@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import GGClient from "../../api/GGClient";
 import Loading from "../loading";
 import NurseryCard from "../nurseryCard";
@@ -18,7 +19,9 @@ function Nurseries() {
 
 	return (
 		<div>
-			<h1 className="display-5 mb-3">Nurseries</h1>
+			<h1 className="display-5 mb-3">
+				<Translate value="nurseries" />
+			</h1>
 			<Row className="mb-3">
 				{nurseries ? (
 					nurseries.length > 0 ? (

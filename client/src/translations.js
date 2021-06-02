@@ -18,6 +18,11 @@ setTranslations({
 		signUpAsNursery: "Sign-up as Nursery",
 		signInAsNursery: "Sign-in as Nursery",
 		submit: "Submit",
+		noProducts: "No product was found.",
+		email: "Email",
+		phone: "Phone",
+		chatWithNursery: "Chat with Nursery",
+		signInToChat: "Sign in to Chat",
 	},
 	ur: {
 		latest: "تازہ ترین",
@@ -36,6 +41,11 @@ setTranslations({
 		signUpAsNursery: "نرسری اکاؤنٹ بنائیں",
 		signInAsNursery: "نرسری سائن ان",
 		submit: "جمع کریں",
+		noProducts: "مصنوعات موجود نہیں ہیں۔",
+		email: "ای-میل",
+		phone: "فون",
+		chatWithNursery: "نرسری کے ساتھ بات کریں",
+		signInToChat: "بات کرنے کے لیے ساںٔن ان کریں",
 	},
 });
 

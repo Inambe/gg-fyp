@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Pagination, Row } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { useLocation } from "react-router";
 import GGClient from "../../api/GGClient";
 import Loading from "../loading";
@@ -27,7 +28,9 @@ function Plants() {
 
 	return (
 		<div>
-			<h1 className="display-5 mb-3">Products</h1>
+			<h1 className="display-5 mb-3">
+				<Translate value="products" />
+			</h1>
 			<Row className="mb-3">
 				{products ? (
 					products.length > 0 ? (
@@ -36,7 +39,9 @@ function Plants() {
 						))
 					) : (
 						<Col>
-							<p className="text-center">No product was found.</p>
+							<p className="text-center">
+								<Translate value="noProducts" />
+							</p>
 						</Col>
 					)
 				) : (

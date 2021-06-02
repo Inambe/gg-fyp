@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Image, Row, Table } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import GGClient from "../../api/GGClient";
@@ -72,13 +73,17 @@ function Product() {
 							</tr>
 							{product.nursery.email && (
 								<tr>
-									<th>Email</th>
+									<th>
+										<Translate value="email" />
+									</th>
 									<td>{product.nursery.email}</td>
 								</tr>
 							)}
 							{product.nursery.phone && (
 								<tr>
-									<th>Phone</th>
+									<th>
+										<Translate value="phone" />
+									</th>
 									<td>{product.nursery.phone}</td>
 								</tr>
 							)}

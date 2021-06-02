@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Table } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { useParams } from "react-router";
 import GGClient from "../../api/GGClient";
 import ChatButton from "../chatButton";
@@ -40,13 +41,17 @@ function Nursery() {
 							<tbody>
 								{nursery.email && (
 									<tr>
-										<th>Email</th>
+										<th>
+											<Translate value="email" />
+										</th>
 										<td>{nursery.email}</td>
 									</tr>
 								)}
 								{nursery.phone && (
 									<tr>
-										<th>Phone</th>
+										<th>
+											<Translate value="phone" />
+										</th>
 										<td>{nursery.phone}</td>
 									</tr>
 								)}
@@ -55,7 +60,9 @@ function Nursery() {
 					</Col>
 				</Row>
 			</div>
-			<h2>Products</h2>
+			<h2>
+				<Translate value="products" />
+			</h2>
 			<Row className="mb-3">
 				{products ? (
 					products.length > 0 ? (
@@ -64,7 +71,9 @@ function Nursery() {
 						))
 					) : (
 						<Col>
-							<p className="text-center">No product was found.</p>
+							<p className="text-center">
+								<Translate value="noProducts" />
+							</p>
 						</Col>
 					)
 				) : (

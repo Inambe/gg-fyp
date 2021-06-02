@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { GoLocation } from "react-icons/go";
 import { Link } from "react-router-dom";
 
@@ -21,7 +22,7 @@ function NurseryCard({ nursery }) {
 							to={`/nurseries/${nursery._id}`}
 							variant="primary"
 						>
-							See more
+							<Translate value="readMore" />
 						</Button>
 					</div>
 				</Card.Body>
