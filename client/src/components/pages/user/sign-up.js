@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { useHistory } from "react-router-dom";
 import GGClient from "../../../api/GGClient";
 
@@ -41,7 +42,9 @@ function UserSignUp() {
 		<div>
 			<Row>
 				<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-					<h1 className="text-center p-3">Sign up as User</h1>
+					<h1 className="text-center p-3">
+						<Translate value="signUpAsUser" />
+					</h1>
 					{feedback && (
 						<Alert
 							variant={
@@ -85,7 +88,7 @@ function UserSignUp() {
 						</Form.Group>
 
 						<Button variant="primary" type="submit">
-							Submit
+							<Translate value="submit" />
 						</Button>
 					</Form>
 				</Col>

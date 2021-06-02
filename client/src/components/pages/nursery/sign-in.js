@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { useHistory } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 
@@ -41,7 +42,9 @@ function NurserySignIn() {
 		<div>
 			<Row>
 				<Col md={{ span: 8, offset: 2 }} lg={{ span: 6, offset: 3 }}>
-					<h1 className="text-center p-3">Sign in as Nursery</h1>
+					<h1 className="text-center p-3">
+						<Translate value="signInAsNursery" />
+					</h1>
 					{feedback && (
 						<Alert
 							variant={
@@ -73,7 +76,7 @@ function NurserySignIn() {
 						</Form.Group>
 
 						<Button variant="primary" type="submit">
-							Submit
+							<Translate value="submit" />
 						</Button>
 					</Form>
 				</Col>

@@ -14,7 +14,10 @@ setTranslations({
 		user: "User",
 		nursery: "Nursery",
 		signUpAsUser: "Sign-up as User",
+		signInAsUser: "Sign-in as User",
 		signUpAsNursery: "Sign-up as Nursery",
+		signInAsNursery: "Sign-in as Nursery",
+		submit: "Submit",
 	},
 	ur: {
 		latest: "تازہ ترین",
@@ -29,7 +32,10 @@ setTranslations({
 		user: "صارف",
 		nursery: "نرسری",
 		signUpAsUser: "صارف اکاؤنٹ بنائیں",
+		signInAsUser: "صارف سائن ان",
 		signUpAsNursery: "نرسری اکاؤنٹ بنائیں",
+		signInAsNursery: "نرسری سائن ان",
+		submit: "جمع کریں",
 	},
 });
 
