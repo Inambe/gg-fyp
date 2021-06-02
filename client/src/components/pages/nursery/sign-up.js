@@ -57,7 +57,9 @@ function NurserySignUp() {
 
 					<Form action="POST" onSubmit={signUp}>
 						<Form.Group controlId="name">
-							<Form.Label>Name*</Form.Label>
+							<Form.Label>
+								<Translate value="name" />
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="Nursery Name"
@@ -67,7 +69,9 @@ function NurserySignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="email">
-							<Form.Label>Email</Form.Label>
+							<Form.Label>
+								<Translate value="email" />
+							</Form.Label>
 							<Form.Control
 								type="email"
 								placeholder="e.g. nursery@mail.com"
@@ -76,7 +80,9 @@ function NurserySignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="phone">
-							<Form.Label>Phone</Form.Label>
+							<Form.Label>
+								<Translate value="phone" />
+							</Form.Label>
 							<Form.Control
 								placeholder="e.g. +92 330 4534234"
 								name="phone"
@@ -84,7 +90,9 @@ function NurserySignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="password">
-							<Form.Label>Password*</Form.Label>
+							<Form.Label>
+								<Translate value="password" />
+							</Form.Label>
 							<Form.Control
 								type="password"
 								placeholder="Password"
@@ -95,7 +103,9 @@ function NurserySignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="location">
-							<Form.Label>Location*</Form.Label>
+							<Form.Label>
+								<Translate value="address" />
+							</Form.Label>
 							<Form.Control
 								type="location"
 								placeholder="Street, City, Province"

@@ -56,7 +56,9 @@ function NurserySignIn() {
 					)}
 					<Form method="POST" onSubmit={signIn}>
 						<Form.Group controlId="username">
-							<Form.Label>Username*</Form.Label>
+							<Form.Label>
+								<Translate value="username" />
+							</Form.Label>
 							<Form.Control
 								placeholder="Phone/Email"
 								required
@@ -65,7 +67,9 @@ function NurserySignIn() {
 						</Form.Group>
 
 						<Form.Group controlId="password">
-							<Form.Label>Password*</Form.Label>
+							<Form.Label>
+								<Translate value="password" />
+							</Form.Label>
 							<Form.Control
 								type="password"
 								placeholder="Password"

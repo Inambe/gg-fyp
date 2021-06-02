@@ -30,7 +30,9 @@ function Nurseries() {
 						))
 					) : (
 						<Col>
-							<p className="text-center">No nursery was found.</p>
+							<p className="text-center">
+								<Translate value="noNurseries" />
+							</p>
 						</Col>
 					)
 				) : (

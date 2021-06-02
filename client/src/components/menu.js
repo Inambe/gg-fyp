@@ -138,7 +138,7 @@ function MainMenu() {
 							className="mr-sm-2"
 						/>
 						<Button type="submit" variant="secondary">
-							Search
+							<Translate value="search" />
 						</Button>
 					</Form>
 				</Navbar.Collapse>

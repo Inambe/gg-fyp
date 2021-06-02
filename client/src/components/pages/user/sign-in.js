@@ -56,7 +56,9 @@ function UserSignIn() {
 					)}
 					<Form method="POST" onSubmit={signIn}>
 						<Form.Group controlId="email">
-							<Form.Label>Email*</Form.Label>
+							<Form.Label>
+								<Translate value="email" />
+							</Form.Label>
 							<Form.Control
 								type="email"
 								placeholder="e.g. ahmed@mail.com"
@@ -66,7 +68,9 @@ function UserSignIn() {
 						</Form.Group>
 
 						<Form.Group controlId="password">
-							<Form.Label>Password*</Form.Label>
+							<Form.Label>
+								<Translate value="password" />
+							</Form.Label>
 							<Form.Control
 								type="password"
 								placeholder="Password"

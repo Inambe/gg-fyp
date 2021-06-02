@@ -57,7 +57,9 @@ function UserSignUp() {
 
 					<Form action="POST" onSubmit={signUp}>
 						<Form.Group controlId="name">
-							<Form.Label>Name*</Form.Label>
+							<Form.Label>
+								<Translate value="name" />
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="User Name"
@@ -67,7 +69,9 @@ function UserSignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="email">
-							<Form.Label>Email*</Form.Label>
+							<Form.Label>
+								<Translate value="email" />
+							</Form.Label>
 							<Form.Control
 								type="email"
 								placeholder="e.g. user@mail.com"
@@ -77,7 +81,9 @@ function UserSignUp() {
 						</Form.Group>
 
 						<Form.Group controlId="password">
-							<Form.Label>Password*</Form.Label>
+							<Form.Label>
+								<Translate value="password" />
+							</Form.Label>
 							<Form.Control
 								type="password"
 								placeholder="Password"

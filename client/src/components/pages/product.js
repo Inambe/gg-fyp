@@ -58,7 +58,9 @@ function Product() {
 								</th>
 							</tr>
 							<tr>
-								<th>Name</th>
+								<th>
+									<Translate value="name" />
+								</th>
 								<td>
 									<Link
 										to={`/nurseries/${product.nursery._id}`}
@@ -68,7 +70,9 @@ function Product() {
 								</td>
 							</tr>
 							<tr>
-								<th>Address</th>
+								<th>
+									<Translate value="address" />
+								</th>
 								<td>{product.nursery.location}</td>
 							</tr>
 							{product.nursery.email && (
