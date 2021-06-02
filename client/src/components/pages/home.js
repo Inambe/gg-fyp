@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Carousel, Jumbotron, Row } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
@@ -28,11 +29,11 @@ function Home() {
 				<p className="lead">{settings.description}</p>
 				<p>
 					<Button as={Link} to="/user/sign-up" variant="primary">
-						Sign-up as User
+						<Translate value="signUpAsUser" />
 					</Button>
 					&nbsp;&nbsp;
 					<Button as={Link} to="/nursery/sign-up" variant="primary">
-						Sign-up as Nursery
+						<Translate value="signUpAsNursery" />
 					</Button>
 				</p>
 			</Jumbotron>
@@ -55,7 +56,9 @@ function Home() {
 			</Carousel>
 
 			<section>
-				<h1 className="display-5">Latest</h1>
+				<h1 className="display-5">
+					<Translate value="latest" />
+				</h1>
 				<Row>
 					{products ? (
 						products.map((product, i) => (
@@ -67,7 +70,7 @@ function Home() {
 				</Row>
 				<div className="d-flex justify-content-center py-3">
 					<Button as={Link} to="/products" variant="primary">
-						See more
+						<Translate value="seeMore" />
 					</Button>
 				</div>
 			</section>

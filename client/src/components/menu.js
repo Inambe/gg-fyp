@@ -11,6 +11,7 @@ import {
 	Image,
 } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
+import { I18n, translate, Translate } from "react-i18nify";
 import {
 	isAdminAuthenticated,
 	isNurseryAuthenticated,
@@ -60,56 +61,67 @@ function MainMenu() {
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
 						<RLink to="/products" component={Nav.Link}>
-							Products
+							<Translate value="products" />
 						</RLink>
 						<RLink to="/nurseries" component={Nav.Link}>
-							Nurseries
+							<Translate value="nurseries" />
 						</RLink>
 						<RLink to="/about" component={Nav.Link}>
-							About Us
+							<Translate value="aboutUs" />
 						</RLink>
 						{_isNurseryAuthenticated ? (
 							<RLink to="/nursery/dashboard" component={Nav.Link}>
-								Dashboard
+								<Translate value="dashboard" />
 							</RLink>
 						) : (
-							<NavDropdown
-								title="Nursery"
-								id="basic-nav-dropdown"
-							>
-								<RLink
-									to="/nursery/sign-up"
-									component={NavDropdown.Item}
-								>
-									Sign-up
-								</RLink>
-								<RLink
-									to="/nursery/sign-in"
-									component={NavDropdown.Item}
-								>
-									Sign-in
-								</RLink>
-							</NavDropdown>
+							<I18n
+								render={() => (
+									<NavDropdown
+										title={translate("nursery")}
+										id="basic-nav-dropdown"
+									>
+										<RLink
+											to="/nursery/sign-up"
+											component={NavDropdown.Item}
+										>
+											<Translate value="signUp" />
+										</RLink>
+										<RLink
+											to="/nursery/sign-in"
+											component={NavDropdown.Item}
+										>
+											<Translate value="signIn" />
+										</RLink>
+									</NavDropdown>
+								)}
+							/>
 						)}
 						{_isUserAuthenticated ? (
 							<RLink to="/user/dashboard" component={Nav.Link}>
-								Dashboard
+								<Translate value="dashboard" />
 							</RLink>
 						) : (
-							<NavDropdown title="User" id="basic-nav-dropdown">
-								<RLink
-									to="/user/sign-up"
-									component={NavDropdown.Item}
-								>
-									Sign-up
-								</RLink>
-								<RLink
-									to="/user/sign-in"
-									component={NavDropdown.Item}
-								>
-									Sign-in
-								</RLink>
-							</NavDropdown>
+							<I18n
+								render={() => (
+									<NavDropdown
+										title={translate("user")}
+										id="basic-nav-dropdown"
+									>
+										<RLink
+											to="/user/sign-up"
+											component={NavDropdown.Item}
+										>
+											<Translate value="signUp" />
+										</RLink>
+										<RLink
+											to="/user/sign-in"
+											component={NavDropdown.Item}
+										>
+											<Translate value="signIn" />
+										</RLink>
+									</NavDropdown>
+								)}
+							/>
 						)}
 						{_isAdminAuthenticated && (
 							<RLink to="/admin/dashboard" component={Nav.Link}>

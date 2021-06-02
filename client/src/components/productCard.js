@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { Translate } from "react-i18nify";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { uploadsUrl } from "../api/utils";
@@ -36,7 +37,7 @@ function ProductCard({ product, noSeller }) {
 								to={`/products/${product._id}`}
 								variant="primary"
 							>
-								Read more
+								<Translate value="readMore" />
 							</Button>
 						</span>
 					</div>
