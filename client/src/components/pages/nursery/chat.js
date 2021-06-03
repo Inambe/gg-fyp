@@ -71,7 +71,7 @@ function NurseryChat() {
 
 	return nursery && user ? (
 		<div>
-			<h1 className="text-center">Your chat with {user.name}</h1>
+			<h2 className="text-center">Your chat with {user.name}</h2>
 			{messages.length ? (
 				<ListGroup className="py-4">
 					{messages.map((message) => (
@@ -79,7 +79,7 @@ function NurseryChat() {
 							className={clsx(
 								"mb-2",
 								message.from === "nursery"
-									? "bg-secondary"
+									? "bg-light-gray"
 									: "bg-primary text-light"
 							)}
 						>
